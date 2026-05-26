@@ -17,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* 頂部白色導覽列 (致敬參考圖) */
+        /* 頂部白色導覽列 */
         header {
             position: fixed;
             top: 0;
@@ -35,7 +35,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #d32f2f; /* 紅色點綴，類似參考圖的 Logo */
+            color: #d32f2f; 
             display: flex;
             align-items: center;
             gap: 10px;
@@ -49,6 +49,7 @@
         nav {
             display: flex;
             gap: 30px;
+            align-items: center;
         }
         nav a {
             text-decoration: none;
@@ -58,22 +59,66 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
+            padding: 10px 0;
         }
         nav a:hover {
             color: #d32f2f;
         }
 
+        /* --- 新增：下拉式選單 (Dropdown) 設計 --- */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* 下拉選單內容 (預設隱藏) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            border-top: 3px solid #d32f2f;
+        }
+
+        /* 下拉選單內的連結 */
+        .dropdown-content a {
+            color: #333;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #d32f2f;
+            padding-left: 25px; /* 增加一個小動畫效果 */
+            transition: 0.3s;
+        }
+
+        /* 滑鼠移入時顯示下拉選單 */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* ------------------------------------- */
+
         /* 全螢幕主視覺區塊 (Hero Section) */
         .hero {
             height: 100vh;
-            /* 這裡我放了一張高畫質的工業管線圖作為預設背景，你可以之後換成自己的圖 */
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* 創造視差滾動效果 */
+            background-attachment: fixed; 
             display: flex;
             align-items: center;
-            padding-left: 10%; /* 讓文字靠左，如參考圖 */
+            padding-left: 10%; 
         }
 
         /* 左側文字框設計 */
@@ -83,7 +128,6 @@
             animation: fadeIn 1.5s ease-out;
         }
 
-        /* 模擬參考圖的框線與大標題 */
         .subtitle {
             font-size: 1.5rem;
             letter-spacing: 8px;
@@ -109,7 +153,7 @@
             color: #e0e0e0;
         }
 
-        /* 核心業務清單 (保留你的需求，但融入新設計) */
+        /* 核心業務清單 */
         .feature-list {
             list-style: none;
             margin-bottom: 40px;
@@ -153,24 +197,30 @@
 </head>
 <body>
 
-    <!-- 頂部導覽列 -->
     <header>
         <div class="logo">
-            <!-- 模擬企業 Logo 的排版 -->
-            B.T. <span>Open-Source CFD</span>
+            [Your Company Name] <span>Open-Source CFD</span>
         </div>
+        
         <nav>
-            <a href="cfd-service.html">CFD Service</a>
-            <a href="laser-cooling.html">Laser Cooling</a>
-            <a href="battery-cooling.html">Li-ion Battery</a>
-            <a href="ai-solutions.html">AI Solutions</a>
+            <a href="index.html">Home</a>
+            
+            <div class="dropdown">
+                <a href="cfd-service.html" class="dropbtn">CFD Services ▼</a>
+                <div class="dropdown-content">
+                    <a href="laser-cooling.html">Laser Cooling</a>
+                    <a href="battery-cooling.html">Li-ion Battery Cooling</a>
+                    <a href="ai-solutions.html">AI Integrated Solutions</a>
+                </div>
+            </div>
+
+            <a href="about-us.html">About Us</a>
+            <a href="contact-us.html">Contact Us</a>
         </nav>
     </header>
 
-    <!-- 全螢幕背景主視覺 -->
     <section class="hero">
         <div class="hero-content">
-            <!-- 模擬參考圖的 "PROFESSIONAL" 框線設計 -->
             <div class="subtitle">PROFESSIONAL</div>
             
             <h1>Advanced Cooling<br>Technology</h1>
@@ -182,7 +232,7 @@
                 <li>AI-Integrated optimization for rapid design iterations</li>
             </ul>
 
-            <a href="mailto:your-email@example.com" class="cta-btn">Contact Us</a>
+            <a href="contact-us.html" class="cta-btn">Contact Us</a>
         </div>
     </section>
 
